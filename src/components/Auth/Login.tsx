@@ -1,15 +1,15 @@
-import { withAuthenticator, WithAuthenticatorProps } from "@aws-amplify/ui-react";
+import { withAuthenticator } from "@aws-amplify/ui-react";
 import '@aws-amplify/ui-react/styles.css';
 
-import './config/aws-config';
-
-interface AppProps extends WithAuthenticatorProps {
+type AppProps = {
+    signOut: () => void;
+    user: any;
 }
 
 function App({ signOut, user }: AppProps) {
     return (
         <div>
-        <p>Hello, {user?.username}</p>
+        <p>Hello, {user.username}</p>
         <button onClick={signOut}>Sign out</button>
         </div>
     );
